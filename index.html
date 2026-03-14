@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>משחק מסלול חיות</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>משחק מסלול חיות - שני שחקנים</h1>
+        <p>מטילים קובייה ומתקדמים בשביל עד קו הסיום.</p>
+      </header>
+
+      <section class="controls" aria-label="לוח בקרה">
+        <div class="player-status" id="player1Status">שחקן 1 נמצא במשבצת: התחלה</div>
+        <div class="player-status" id="player2Status">שחקן 2 נמצא במשבצת: התחלה</div>
+        <div class="turn-indicator" id="turnIndicator">תור נוכחי: שחקן 1</div>
+        <button id="rollButton" type="button">הטלת קובייה</button>
+        <div class="dice-result" id="diceResult" aria-live="polite">תוצאת קובייה: -</div>
+        <div class="game-message" id="gameMessage" aria-live="polite"></div>
+      </section>
+
+      <section class="board-wrapper" aria-label="לוח משחק">
+        <div class="board" id="board"></div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
