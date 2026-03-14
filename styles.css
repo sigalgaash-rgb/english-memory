@@ -1,0 +1,148 @@
+:root {
+  color-scheme: light;
+  --bg: #eef7fb;
+  --card: #ffffff;
+  --ink: #233245;
+  --accent: #5a96b6;
+  --p1: #ef6a6a;
+  --p2: #6f7dd6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Arial", "Heebo", sans-serif;
+  background: radial-gradient(circle at top, #f8fdff 10%, var(--bg) 60%);
+  color: var(--ink);
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.controls {
+  background: var(--card);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(35, 50, 69, 0.12);
+  padding: 1rem;
+  display: grid;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.player-status,
+.turn-indicator,
+.dice-result,
+.game-message {
+  font-size: 1rem;
+}
+
+#rollButton {
+  justify-self: start;
+  border: none;
+  border-radius: 10px;
+  padding: 0.7rem 1.2rem;
+  background: var(--accent);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#rollButton:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.board-wrapper {
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(80px, 1fr));
+  gap: 8px;
+  min-width: 860px;
+}
+
+.cell {
+  position: relative;
+  border-radius: 12px;
+  min-height: 96px;
+  border: 2px solid #cfe3ef;
+  padding: 0.45rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.5);
+}
+
+.cell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  border: 2px dashed rgba(255, 255, 255, 0.6);
+}
+
+.cell-label,
+.cell-number {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 8px;
+  width: fit-content;
+  padding: 0.1rem 0.4rem;
+}
+
+.cell-number {
+  align-self: flex-end;
+  font-weight: bold;
+}
+
+.tokens {
+  position: absolute;
+  bottom: 8px;
+  inset-inline-start: 8px;
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+}
+
+.token {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+.token.player1 {
+  background: var(--p1);
+}
+
+.token.player2 {
+  background: var(--p2);
+}
+
+.cell.start {
+  border-color: #98c86f;
+}
+
+.cell.finish {
+  border-color: #f3a84d;
+}
